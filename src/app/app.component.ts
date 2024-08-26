@@ -1,13 +1,16 @@
 import { Component } from '@angular/core'
-import { RouterOutlet } from '@angular/router'
+import { CommonModule } from '@angular/common'
+import { CountdownDisplayComponent } from './countdown-display/countdown-display.component'
+import { EventFormComponent } from './event-form/event-form.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, CountdownDisplayComponent, EventFormComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'countdown'
+  title = 'natural-cycles-countdown'
+  static ɵcmp: any
 }
