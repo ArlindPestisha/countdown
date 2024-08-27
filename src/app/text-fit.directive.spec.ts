@@ -10,19 +10,13 @@ import { TextFitDirective } from './text-fit.directive'
 import { By } from '@angular/platform-browser'
 
 @Component({
-  template: `<div
-    appTextFit
-    [minFontSize]="minSize"
-    [maxFontSize]="maxSize"
-    [lineHeight]="lineHeight"
-  >
+  template: `<div appTextFit [minFontSize]="minSize" [maxFontSize]="maxSize">
     Test Content
   </div>`,
 })
 class TestComponent {
   minSize = 12
   maxSize = 100
-  lineHeight = 1.2
 }
 
 describe('TextFitDirective', () => {
@@ -51,12 +45,6 @@ describe('TextFitDirective', () => {
     expect(directive).toBeTruthy()
   })
 
-  it('should set initial font size and line height', () => {
-    fixture.detectChanges()
-    expect(divElement.style.fontSize).not.toBe('')
-    expect(divElement.style.lineHeight).toBe('1.2')
-  })
-
   it('should respect min and max font size', () => {
     component.minSize = 20
     component.maxSize = 30
@@ -83,7 +71,7 @@ describe('TextFitDirective', () => {
 
     window.dispatchEvent(new Event('resize'))
 
-    tick(100)
+    tick(200)
 
     fixture.detectChanges()
 

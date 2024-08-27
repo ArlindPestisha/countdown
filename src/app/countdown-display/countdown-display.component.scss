@@ -4,16 +4,27 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  margin-bottom: 50px;
+  box-sizing: border-box;
+
+  .event-name,
+  .countdown {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+  }
 
   .event-name {
     color: #800080;
-    text-align: center;
-    margin-bottom: 20px;
   }
 
   .countdown {
     color: #000;
-    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .countdown-container {
+    height: auto;
   }
 }

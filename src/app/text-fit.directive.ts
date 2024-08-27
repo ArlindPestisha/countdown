@@ -15,7 +15,6 @@ import { debounceTime, takeUntil } from 'rxjs/operators'
 export class TextFitDirective implements AfterViewInit, OnDestroy {
   @Input() minFontSize = 12
   @Input() maxFontSize = 100
-  @Input() lineHeight = 1.2
 
   private destroy$ = new Subject<void>()
   private element: HTMLElement
@@ -36,7 +35,7 @@ export class TextFitDirective implements AfterViewInit, OnDestroy {
 
   private setupResizeListener() {
     fromEvent(window, 'resize')
-      .pipe(debounceTime(100), takeUntil(this.destroy$))
+      .pipe(debounceTime(200), takeUntil(this.destroy$))
       .subscribe(() => this.fitText())
   }
 
@@ -45,15 +44,13 @@ export class TextFitDirective implements AfterViewInit, OnDestroy {
     let high = this.maxFontSize
     let mid: number
 
+    this.element.style.whiteSpace = 'nowrap'
+
     while (low <= high) {
       mid = Math.floor((low + high) / 2)
       this.element.style.fontSize = `${mid}px`
-      this.element.style.lineHeight = `${this.lineHeight}`
 
-      if (
-        this.element.scrollWidth <= this.element.offsetWidth &&
-        this.element.scrollHeight <= this.element.offsetHeight
-      ) {
+      if (this.element.scrollWidth <= this.element.offsetWidth) {
         low = mid + 1
       } else {
         high = mid - 1
@@ -61,5 +58,6 @@ export class TextFitDirective implements AfterViewInit, OnDestroy {
     }
 
     this.element.style.fontSize = `${high}px`
+    this.element.style.whiteSpace = 'normal'
   }
 }

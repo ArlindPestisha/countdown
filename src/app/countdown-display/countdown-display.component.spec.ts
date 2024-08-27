@@ -89,14 +89,14 @@ describe('CountdownDisplayComponent', () => {
   it('should set correct min and max font sizes for event name', () => {
     const eventNameElement = fixture.debugElement.query(By.css('.event-name'))
     const directive = eventNameElement.injector.get(TextFitDirective)
-    expect(directive.minFontSize).toBe(24)
+    expect(directive.minFontSize).toBe(12)
     expect(directive.maxFontSize).toBe(100)
   })
 
   it('should set correct min and max font sizes for countdown', () => {
     const countdownElement = fixture.debugElement.query(By.css('.countdown'))
     const directive = countdownElement.injector.get(TextFitDirective)
-    expect(directive.minFontSize).toBe(20)
+    expect(directive.minFontSize).toBe(12)
     expect(directive.maxFontSize).toBe(80)
   })
 

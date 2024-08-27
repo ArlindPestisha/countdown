@@ -22,8 +22,7 @@ describe('CountdownService', () => {
   afterEach(() => {
     try {
       jasmine.clock().uninstall()
-    } catch (e) {
-    }
+    } catch (e) {}
   })
 
   it('should be created', () => {

@@ -10,10 +10,10 @@ import { TextFitDirective } from '../text-fit.directive'
   imports: [CommonModule, TextFitDirective],
   template: `
     <div class="countdown-container">
-      <h1 class="event-name" appTextFit [minFontSize]="24" [maxFontSize]="100">
+      <h1 class="event-name" appTextFit [minFontSize]="12" [maxFontSize]="100">
         Time to {{ eventName }}
       </h1>
-      <div class="countdown" appTextFit [minFontSize]="20" [maxFontSize]="80">
+      <div class="countdown" appTextFit [minFontSize]="12" [maxFontSize]="80">
         {{ countdown }}
       </div>
     </div>
