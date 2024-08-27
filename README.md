@@ -17,8 +17,8 @@ You can view a live demo of the application here: [https://master--countdownnatu
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/natural-cycles-countdown.git
-   cd natural-cycles-countdown
+   git clone https://github.com/your-username/countdown.git
+   cd countdown
    ```
 
 2. Install dependencies:
